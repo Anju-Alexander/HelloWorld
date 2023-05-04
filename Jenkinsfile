@@ -17,5 +17,16 @@ pipeline {
                 echo 'Deploy App'
             }
         }
+        stage('CheckoutModule1') {
+        steps {
+                sh 'mkdir -p Module1'
+                dir("Module1")
+                {
+                    git branch: "develop",
+                    //credentialsId: 'aaa',
+                    url: 'https://github.com/Anju-Alexander/HelloWorld.git'
+                }
+            }
+        }
     }
 }
